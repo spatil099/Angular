@@ -1,0 +1,22 @@
+<div class = "container-fluid">
+  <table class="table table-sm table-striped tabled-bordered p-2 ">
+    <thead>
+      <tr>
+        <th>ID</th><th>Name</th><th>Category</th><th>Description</th><th>Price</th>
+        <th></th>
+        </tr>
+    </thead>
+    <tr *ngFor = "let product of products">
+      <td>{{product.id}}</td>
+      <td>{{product.category}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.price | currency:"USD":"symbol":"2.2-2"}}</td>
+      <td>
+      <button class="btn btn-sm btn-warning" [routerLink]="['/admin/main/products/edit', product.id]">Edit</button>
+      <button class = "btn btn-sm text-center btn-danger" (click)="deleteProduct(product)">Delete</button>
+    </td>
+    </tr>
+  </table>
+  <button class = "btn btn-sm btn-success" [routerLink]="['/admin/main/products/create']">Create New Product</button>
+</div>
